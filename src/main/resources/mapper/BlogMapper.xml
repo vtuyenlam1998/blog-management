@@ -1,0 +1,24 @@
+<!-- src/main/resources/mapper/UserMapper.xml -->
+<mapper namespace="com.example.blogcrud.mapper.BlogMapper">
+    <!-- Định nghĩa truy vấn SELECT -->
+    <select id="getBlogById" resultType="com.example.blogcrud.model.Blog">
+        SELECT * FROM blogs WHERE id = #{id}
+    </select>
+    <!-- Định nghĩa truy vấn INSERT -->
+    <insert id="insertBlog" parameterType="com.example.blogcrud.model.Blog">
+        INSERT INTO blogs (name, description) VALUES (#{name}, #{description})
+    </insert>
+    <!-- Định nghĩa truy vấn SELECT trả về danh sách -->
+    <select id="getAllBlogs" resultType="com.example.blogcrud.model.Blog">
+        SELECT * FROM users
+    </select>
+    <!-- Định nghĩa truy vấn UPDATE -->
+    <update id="updateBlog" parameterType="com.example.blogcrud.model.Blog">
+        UPDATE blogs
+        SET name = #{name}, description = #{description}
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteBlog" parameterType="com.example.blogcrud.model.Blog">
+        DELETE FROM blogs WHERE id = #{id}
+    </delete>
+</mapper>

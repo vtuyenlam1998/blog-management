@@ -2,6 +2,7 @@ package com.example.blogcrud.controller;
 
 import com.example.blogcrud.model.Blog;
 import com.example.blogcrud.payload.request.CreateBlogRequestDTO;
+import com.example.blogcrud.payload.request.EditBlogRequestDTO;
 import com.example.blogcrud.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -68,6 +70,14 @@ public class BlogController {
     public ModelAndView createNewBlog(@ModelAttribute CreateBlogRequestDTO requestDTO ) {
         ModelAndView modelAndView = new ModelAndView("create");
         Blog blog = blogService.save(requestDTO);
+        modelAndView.addObject("blog",blog);
+        return modelAndView;
+    }
+
+    @PutMapping("/edit")
+    public ModelAndView updateBlog(@ModelAttribute EditBlogRequestDTO requestDTO) {
+        ModelAndView modelAndView = new ModelAndView("edit");
+        Blog blog = blogService.update(requestDTO);
         modelAndView.addObject("blog",blog);
         return modelAndView;
     }
