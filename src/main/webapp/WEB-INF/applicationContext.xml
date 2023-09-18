@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    &lt;!&ndash; Cấu hình MyBatis &ndash;&gt;-->
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" /> &lt;!&ndash; Điều này phải khớp với driver cơ sở dữ liệu bạn đang sử dụng &ndash;&gt;-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/your_database" /> &lt;!&ndash; URL kết nối đến cơ sở dữ liệu của bạn &ndash;&gt;-->
+<!--        <property name="username" value="your_username" /> &lt;!&ndash; Tên đăng nhập cơ sở dữ liệu của bạn &ndash;&gt;-->
+<!--        <property name="password" value="your_password" /> &lt;!&ndash; Mật khẩu cơ sở dữ liệu của bạn &ndash;&gt;-->
+<!--    </bean>-->
+
+<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource" />-->
+<!--        <property name="mapperLocations" value="classpath:your/mapper/xml/*.xml" /> &lt;!&ndash; Đường dẫn tới các tệp mapper của bạn &ndash;&gt;-->
+<!--    </bean>-->
+
+<!--    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">-->
+<!--        <constructor-arg ref="sqlSessionFactory" />-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; Cấu hình mapper scan &ndash;&gt;-->
+<!--    <mybatis:scan base-package="your.package.containing.mappers" />-->
+</beans>
