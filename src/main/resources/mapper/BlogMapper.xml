@@ -4,24 +4,43 @@
 <!-- src/main/resources/mapper/BlogMapper.xml -->
 <mapper namespace="com.example.blogcrud.mapper.BlogMapper">
     <!-- Định nghĩa truy vấn SELECT -->
-    <select id="getBlogById" parameterType="long" resultType="com.example.blogcrud.model.Blog">
+    <select id="getBlogById" parameterType="long" resultMap="blogResultMap">
         SELECT * FROM blogs WHERE id = #{id}
     </select>
+
     <!-- Định nghĩa truy vấn INSERT -->
     <insert id="insertBlog" parameterType="com.example.blogcrud.model.Blog">
         INSERT INTO blogs (name, description) VALUES (#{name}, #{description})
     </insert>
+
     <!-- Định nghĩa truy vấn SELECT trả về danh sách -->
-    <select id="getAllBlogs" resultType="com.example.blogcrud.model.Blog">
+    <select id="getAllBlogs" resultMap="blogResultMap">
         SELECT * FROM blogs
     </select>
+
+    <select id="getBlogsByPage" resultMap="blogResultMap">
+        SELECT * FROM blogs
+    </select>
+
     <!-- Định nghĩa truy vấn UPDATE -->
     <update id="updateBlog" parameterType="com.example.blogcrud.model.Blog">
         UPDATE blogs
         SET name = #{name}, description = #{description}
         WHERE id = #{id}
     </update>
+
     <delete id="deleteBlog" parameterType="long">
         DELETE FROM blogs WHERE id = #{id}
     </delete>
+
+    <select id="getTotalRecordCount" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM blogs
+    </select>
+
+    <resultMap id="blogResultMap" type="com.example.blogcrud.model.Blog">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="timeCreation" column="time_creation"/>
+    </resultMap>
 </mapper>

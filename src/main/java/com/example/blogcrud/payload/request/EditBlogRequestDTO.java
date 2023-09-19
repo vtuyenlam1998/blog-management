@@ -12,6 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class EditBlogRequestDTO {
+    private long id;
     private String name;
     private String description;
 }
