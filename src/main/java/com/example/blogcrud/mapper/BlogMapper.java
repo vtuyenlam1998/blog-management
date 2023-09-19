@@ -2,6 +2,7 @@ package com.example.blogcrud.mapper;
 
 import com.example.blogcrud.model.Blog;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 

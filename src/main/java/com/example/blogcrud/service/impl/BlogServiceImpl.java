@@ -7,15 +7,21 @@ import com.example.blogcrud.payload.request.CreateBlogRequestDTO;
 import com.example.blogcrud.payload.request.EditBlogRequestDTO;
 import com.example.blogcrud.service.BlogService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class BlogServiceImpl implements BlogService {
     private final BlogConverter blogConverter;
     private final BlogMapper blogMapper;
+
+    @Autowired
+    public BlogServiceImpl(BlogMapper blogMapper,BlogConverter blogConverter) {
+        this.blogMapper = blogMapper;
+        this.blogConverter = blogConverter;
+    }
     @Override
     public List<Blog> findAll() {
         return blogMapper.getAllBlogs();

@@ -1,7 +1,10 @@
-<!-- src/main/resources/mapper/UserMapper.xml -->
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- src/main/resources/mapper/BlogMapper.xml -->
 <mapper namespace="com.example.blogcrud.mapper.BlogMapper">
     <!-- Định nghĩa truy vấn SELECT -->
-    <select id="getBlogById" resultType="com.example.blogcrud.model.Blog">
+    <select id="getBlogById" parameterType="long" resultType="com.example.blogcrud.model.Blog">
         SELECT * FROM blogs WHERE id = #{id}
     </select>
     <!-- Định nghĩa truy vấn INSERT -->
@@ -10,7 +13,7 @@
     </insert>
     <!-- Định nghĩa truy vấn SELECT trả về danh sách -->
     <select id="getAllBlogs" resultType="com.example.blogcrud.model.Blog">
-        SELECT * FROM users
+        SELECT * FROM blogs
     </select>
     <!-- Định nghĩa truy vấn UPDATE -->
     <update id="updateBlog" parameterType="com.example.blogcrud.model.Blog">
@@ -18,7 +21,7 @@
         SET name = #{name}, description = #{description}
         WHERE id = #{id}
     </update>
-    <delete id="deleteBlog" parameterType="com.example.blogcrud.model.Blog">
+    <delete id="deleteBlog" parameterType="long">
         DELETE FROM blogs WHERE id = #{id}
     </delete>
 </mapper>
